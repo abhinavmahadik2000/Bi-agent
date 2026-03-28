@@ -27,13 +27,8 @@ with st.sidebar:
     dataset_dir = st.text_input("Dataset directory", value="./dataset")
     db_path = st.text_input("DuckDB path", value="./instacart.duckdb")
 
-    st.caption("LLM provider: Anthropic")
-    llm_model = st.text_input("LLM model", value="claude-sonnet-4-6")
-    api_key = st.text_input(
-        "ANTHROPIC_API_KEY",
-        type="password",
-        value=os.getenv("ANTHROPIC_API_KEY", ""),
-    )
+    llm_model = "claude-sonnet-4-6"
+    api_key = os.getenv("ANTHROPIC_API_KEY", "")
 
     max_display_rows = st.number_input("Max rows for display", min_value=10, max_value=2000, value=300)
     max_query_rows = st.number_input("Max query row limit", min_value=100, max_value=50000, value=5000)
